@@ -176,7 +176,7 @@ map_man_list = []
 map_student_list = []
 map_old_list = []
 
-# model = BertClassificationModel("bert-base-chinese")
+# model = BertClassificationModel("download")
 f = open('span_bert_hide_model1.pkl','rb')
 model = torch.load(f,map_location='cuda:0')#可使用cpu或gpu
 query_unique = list(test_samples["query"].unique())
@@ -214,7 +214,7 @@ for i in tqdm(range(len(query_unique))):
         qo_l.append([qo,c])
     
 
-    tokenizer = AutoTokenizer.from_pretrained("model_path/Pre_trained_model/en/bert-base-uncased")
+    tokenizer = AutoTokenizer.from_pretrained("model_path/Raw_model/cn/bert-base-chinese")
     tokenized0 = tokenizer(q_l, padding=True, truncation='longest_first', return_tensors="pt", max_length=512)
     tokenized1 = tokenizer(qw_l, padding=True, truncation='longest_first', return_tensors="pt", max_length=512)
     tokenized2 = tokenizer(qm_l, padding=True, truncation='longest_first', return_tensors="pt", max_length=512)

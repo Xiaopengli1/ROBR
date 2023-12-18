@@ -176,7 +176,7 @@ map_man_list = []
 map_student_list = []
 map_old_list = []
 
-# model = BertClassificationModel("bert-base-chinese")
+# model = BertClassificationModel("download")
 f = open('span_ernie_hide_model.pkl','rb')
 model = torch.load(f,map_location='cuda:0')#可使用cpu或gpu
 query_unique = list(test_samples["query"].unique())

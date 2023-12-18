@@ -37,7 +37,7 @@ map_old_list = []
 
 n = 20
 
-model = CrossEncoder("model_path/Raw_model/cn/bert-base-chinese",num_labels=5, device="cuda", max_length=512)
+model = CrossEncoder("model_path/Raw_model/cn/download",num_labels=5, device="cuda", max_length=512)
 
 
 for i in tqdm(range(len(query))):

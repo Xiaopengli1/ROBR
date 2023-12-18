@@ -67,7 +67,7 @@ def smart_batching_collate(batch):
         text3.append(example.texts[3])
         text4.append(example.texts[4])
         labels.append(example.label)
-    tokenizer = AutoTokenizer.from_pretrained("model_path/Pre_trained_model/en/roberta-base-squad2")
+    tokenizer = AutoTokenizer.from_pretrained("model_path/Raw_model/cn/chinese-roberta-wwm-ext")
     
     tokenized0 = tokenizer(text0, padding=True, truncation='longest_first', return_tensors="pt", max_length=512)
     tokenized1 = tokenizer(text1, padding=True, truncation='longest_first', return_tensors="pt", max_length=512)
@@ -226,7 +226,7 @@ train_dataloader = DataLoader(read_samples(samples[:250000]), shuffle=True, batc
 # test_dataloader = DataLoader(read_samples(samples)[-40000:], shuffle=True, batch_size=30)
 train_dataloader.collate_fn = smart_batching_collate
 
-model = BertClassificationModel("model_path/Pre_trained_model/en/roberta-base-squad2")
+model = BertClassificationModel("model_path/Raw_model/cn/chinese-roberta-wwm-ext")
 model.to("cuda:0")
 param_optimizer = list(model.named_parameters())
 no_decay = ['bias', 'LayerNorm.bias', 'LayerNorm.weight']

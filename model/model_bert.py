@@ -67,7 +67,7 @@ def smart_batching_collate(batch):
         text3.append(example.texts[3])
         text4.append(example.texts[4])
         labels.append(example.label)
-    tokenizer = AutoTokenizer.from_pretrained("model_path/Raw_model/cn/bert-base-chinese")
+    tokenizer = AutoTokenizer.from_pretrained("model_path/Raw_model/cn/download")
     
     tokenized0 = tokenizer(text0, padding=True, truncation='longest_first', return_tensors="pt", max_length=512)
     tokenized1 = tokenizer(text1, padding=True, truncation='longest_first', return_tensors="pt", max_length=512)
